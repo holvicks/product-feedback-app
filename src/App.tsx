@@ -1,13 +1,29 @@
-import { useState } from 'react'
 import './App.css'
+import { useEffect, useState } from 'react'
+import MainLayout from './pages/MainLayout'
+import Login from './pages/Login'
 
 function App() {
-  
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!localStorage.getItem('token'))
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      setIsAuthenticated(true)
+      localStorage.setItem('isAuthenticated', 'true')
+    }
+  }, [])
+
   return (
     <>
-      <div>
-        <p className='text-black bg-black text-5xl'> Hello </p>
-      </div>
+      {isAuthenticated ? (
+        <MainLayout />
+      ) : (
+        <Login onLoggedIn={() => {
+          setIsAuthenticated(true)
+          localStorage.setItem('isAuthenticated', 'true')
+        }} />
+      )}
     </>
   )
 }
