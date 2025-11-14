@@ -6,6 +6,7 @@ import FeedbackList from "./components/FeedbackList";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdCheckmark } from "react-icons/io";
 
 const App: React.FC = () => {
   const [sortOption, setSortOption] = useState("Most Upvotes");
@@ -14,17 +15,20 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F8FD] p-0 md:p-20">
+    <div className="min-h-screen bg-[#F7F8FD] p-4 md:p-20">
       <div className="max-w-[1100px] mx-auto flex flex-col lg:flex-row gap-6">
-      <div
-        className="
-          hidden md:grid md:grid-cols-3 md:gap-4  
-          lg:flex lg:flex-col lg:w-1/4 lg:gap-6   
-        ">
-      <Navbar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-    </div>
 
-        <div className="md:hidden bg-gradient-to-r from-[#AD1FEA] via-[#4661E6] to-[#37D5D6] text-white p-4 flex justify-between items-center rounded-none md:rounded-xl">
+        <div
+  className="
+    hidden md:grid md:grid-cols-3 md:gap-4  
+    lg:flex lg:flex-col lg:w-1/4 lg:gap-6   
+  "
+>
+  <Navbar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+</div>
+
+        {/* MOBILE NAV HEADER */}
+        <div className="md:hidden bg-gradient-to-r from-[#AD1FEA] via-[#4661E6] to-[#37D5D6] text-white p-4 flex justify-between items-center rounded-xl">
           <div>
             <h2 className="font-bold text-lg">Frontend Mentor</h2>
             <p className="opacity-80 text-sm">Feedback Board</p>
@@ -35,7 +39,7 @@ const App: React.FC = () => {
           </button>
         </div>
 
-       
+        {/* MOBILE SLIDE MENU */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 flex">
             <div
@@ -43,7 +47,7 @@ const App: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
             ></div>
 
-            
+            {/* Slide Menu Panel */}
             <div className="w-64 bg-white p-6 h-full overflow-y-auto transition-all shadow-lg">
               <div className="flex justify-end mb-6 cursor-pointer">
                 <button onClick={() => setMobileMenuOpen(false)}>
@@ -106,6 +110,8 @@ const App: React.FC = () => {
                         {option}
                       </div>
                     ))}
+
+                    <IoMdCheckmark className="" />
                   </div>
                 )}
               </div>

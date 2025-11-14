@@ -32,12 +32,16 @@ const Navbar: React.FC<NavbarProps> = ({ activeFilter, onFilterChange }) => {
 
   return (
     <div className="flex flex-col lg:flex-col gap-6 md:contents">
-    <div className="rounded-none md:rounded-xl bg-gradient-to-r from-[#AD1FEA] via-[#4661E6] to-[#37D5D6] p-6 text-white hidden md:block"> 
+
+
+    <div className="rounded-xl bg-gradient-to-r from-[#AD1FEA] via-[#4661E6] to-[#37D5D6] p-6 text-white hidden md:block"> 
   <div className="mb-2 "> 
     <h2 className="text-lg font-bold">Frontend Mentor</h2>
     <p className="text-sm opacity-90">Feedback Board</p>
   </div> 
 </div>
+
+
 
       {/* FILTER TAGS */}
       <div className="bg-white rounded-xl p-6 flex flex-wrap gap-2">
