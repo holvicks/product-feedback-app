@@ -23,7 +23,7 @@ const FeedbackItem: FC<FeedbackItemProps> = ({
 }) => {
   return (
     <article
-      className={`flex items-center justify-between rounded-2xl bg-white p-6 shadow-sm cursor-pointer ${className}`}
+      className={`flex flex-wrap items-center justify-between rounded-2xl bg-white p-6 shadow-sm cursor-pointer ${className}`}
       role="button"
       tabIndex={0}
       aria-label={title}

@@ -13,15 +13,15 @@ export default function Sidebar({
   roadmapCounts,
 }: Readonly<SidebarProps>) {
   return (
-    <aside className="md:w-full px-2 flex md:flex-row md:items-stretch lg:flex-col lg:w-100 flex-row gap-6 md:gap-4 transition-all duration-300">
+    <aside className="md:w-full px-2 flex md:flex-row md:items-stretch lg:flex-col lg:w-100 flex-row gap-6 md:gap-4 transition-all duration-300 ">
       {/* frontend mentor card */}
-      <div className="pb-20 px-6 pt-24 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white sm:hidden">
+      <div className="pb-20 px-6 pt-24 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white hidden md:block ">
         <h2 className="text-3xl font-bold">Frontend Mentor</h2>
         <h4>Feedback Board</h4>
       </div>
 
       {/* category tags card */}
-      <div className=" bg-white rounded-xl p-6 md:w-80 md:pt-16">
+      <div className=" bg-white rounded-xl p-6 md:w-80 md:pt-16 hidden md:block">
         <CategoryTags
           selectedCategory={selectedCategory}
           onCategoryChange={onCategoryChange}
@@ -29,7 +29,7 @@ export default function Sidebar({
       </div>
 
       {/* roadmap */}
-      <div className="bg-white rounded-xl p-6 md:p-4 md:w-80">
+      <div className="bg-white rounded-xl p-6 md:p-4 md:w-80 hidden md:block">
         <Roadmap
           plannedCount={roadmapCounts?.planned ?? 0}
           inProgressCount={roadmapCounts?.inProgress ?? 0}
